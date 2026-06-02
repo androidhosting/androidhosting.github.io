@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Android Hosting</title>
+
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -16,7 +17,6 @@
     header {
       padding: 18px 40px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
       background: #111827;
       border-bottom: 1px solid #1e2d3d;
@@ -26,26 +26,29 @@
       font-weight: bold;
       color: #38bdf8;
       font-size: 20px;
+      margin-right: auto; /* bikin logo ke kiri + nav ke kanan */
     }
 
-    nav { display: flex; gap: 24px; align-items: center; }
-    nav a { color: #94a3b8; text-decoration: none; font-size: 14px; transition: color 0.2s; }
-    nav a:hover { color: #38bdf8; }
+    nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
 
     .hero {
       text-align: center;
       padding: 90px 20px 80px;
-    }
-
-    .hero-badge {
-      display: inline-block;
-      padding: 4px 14px;
-      background: rgba(56,189,248,0.1);
-      border: 1px solid rgba(56,189,248,0.25);
-      border-radius: 100px;
-      color: #38bdf8;
-      font-size: 13px;
-      margin-bottom: 24px;
     }
 
     .hero h1 {
@@ -63,7 +66,12 @@
       line-height: 1.7;
     }
 
-    .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-group {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
     .btn {
       padding: 11px 24px;
@@ -74,9 +82,22 @@
       border: none;
       transition: opacity 0.2s, transform 0.15s;
     }
-    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
-    .btn-primary { background: #38bdf8; color: #0f172a; }
-    .btn-outline { background: transparent; color: #38bdf8; border: 1px solid #38bdf8; }
+
+    .btn:hover {
+      opacity: 0.88;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: #38bdf8;
+      color: #0f172a;
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #38bdf8;
+      border: 1px solid #38bdf8;
+    }
 
     .stats {
       display: flex;
@@ -89,10 +110,28 @@
       overflow: hidden;
     }
 
-    .stat { flex: 1; padding: 20px 16px; text-align: center; border-right: 1px solid #1e2d3d; }
-    .stat:last-child { border-right: none; }
-    .stat-value { font-size: 22px; font-weight: bold; color: #38bdf8; margin-bottom: 4px; }
-    .stat-label { font-size: 12px; color: #475569; }
+    .stat {
+      flex: 1;
+      padding: 20px 16px;
+      text-align: center;
+      border-right: 1px solid #1e2d3d;
+    }
+
+    .stat:last-child {
+      border-right: none;
+    }
+
+    .stat-value {
+      font-size: 22px;
+      font-weight: bold;
+      color: #38bdf8;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #475569;
+    }
 
     .section {
       padding: 20px 40px 70px;
@@ -110,7 +149,12 @@
       margin-bottom: 32px;
     }
 
-    .cards { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
 
     .card {
       background: #111827;
@@ -120,10 +164,28 @@
       border: 1px solid #1e2d3d;
       transition: border-color 0.2s, transform 0.2s;
     }
-    .card:hover { border-color: #38bdf8; transform: translateY(-3px); }
-    .card-icon { font-size: 26px; margin-bottom: 14px; }
-    .card h3 { font-size: 16px; color: #e2e8f0; margin-bottom: 10px; }
-    .card p { font-size: 14px; color: #64748b; line-height: 1.65; }
+
+    .card:hover {
+      border-color: #38bdf8;
+      transform: translateY(-3px);
+    }
+
+    .card-icon {
+      font-size: 26px;
+      margin-bottom: 14px;
+    }
+
+    .card h3 {
+      font-size: 16px;
+      color: #e2e8f0;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #64748b;
+      line-height: 1.65;
+    }
 
     .cta {
       text-align: center;
@@ -132,8 +194,18 @@
       border-top: 1px solid #1e2d3d;
       border-bottom: 1px solid #1e2d3d;
     }
-    .cta h2 { font-size: 26px; color: #e2e8f0; margin-bottom: 12px; }
-    .cta p { color: #64748b; font-size: 15px; margin-bottom: 28px; }
+
+    .cta h2 {
+      font-size: 26px;
+      color: #e2e8f0;
+      margin-bottom: 12px;
+    }
+
+    .cta p {
+      color: #64748b;
+      font-size: 15px;
+      margin-bottom: 28px;
+    }
 
     footer {
       text-align: center;
@@ -144,6 +216,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <header>
@@ -156,9 +229,11 @@
   </header>
 
   <div class="hero">
-    <div class="hero-badge">● System Online — v2.6</div>
     <h1>Android Host System</h1>
-    <p>Platform untuk menghubungkan Android Host dan Remote Node dalam sistem terdistribusi real-time.</p>
+    <p>
+      Platform untuk menghubungkan Android Host dan Remote Node dalam sistem terdistribusi real-time.
+    </p>
+
     <div class="btn-group">
       <button class="btn btn-primary">Get Started</button>
       <button class="btn btn-outline">View Docs</button>
@@ -170,14 +245,17 @@
       <div class="stat-value">99.9%</div>
       <div class="stat-label">Uptime</div>
     </div>
+
     <div class="stat">
       <div class="stat-value">&lt;12ms</div>
       <div class="stat-label">Latency</div>
     </div>
+
     <div class="stat">
       <div class="stat-value">10K+</div>
       <div class="stat-label">Devices</div>
     </div>
+
     <div class="stat">
       <div class="stat-value">256-bit</div>
       <div class="stat-label">Encryption</div>
@@ -186,17 +264,20 @@
 
   <div class="section">
     <div class="section-title">Core Features</div>
+
     <div class="cards">
       <div class="card">
         <div class="card-icon">⚙️</div>
         <h3>Control System</h3>
         <p>Kelola device Android sebagai host & remote dengan mudah dari satu dashboard.</p>
       </div>
+
       <div class="card">
         <div class="card-icon">🔗</div>
         <h3>Real-time</h3>
         <p>Komunikasi cepat antar node menggunakan relay system dengan latensi rendah.</p>
       </div>
+
       <div class="card">
         <div class="card-icon">📡</div>
         <h3>Scalable</h3>
