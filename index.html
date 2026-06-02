@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Android Hosting</title>
-
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -14,9 +13,11 @@
       color: white;
     }
 
+    /* ── HEADER ── */
     header {
       padding: 18px 40px;
       display: flex;
+      justify-content: space-between;
       align-items: center;
       background: #111827;
       border-bottom: 1px solid #1e2d3d;
@@ -26,29 +27,28 @@
       font-weight: bold;
       color: #38bdf8;
       font-size: 20px;
-      margin-right: auto; /* bikin logo ke kiri + nav ke kanan */
+      margin-right: 48px;
     }
 
-    nav {
-      display: flex;
-      gap: 24px;
-      align-items: center;
-    }
+    nav { display: flex; gap: 24px; align-items: center; flex: 1; }
+    nav a { color: #94a3b8; text-decoration: none; font-size: 14px; transition: color 0.2s; }
+    nav a:hover { color: #38bdf8; }
 
-    nav a {
-      color: #94a3b8;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: #38bdf8;
-    }
-
+    /* ── HERO ── */
     .hero {
       text-align: center;
       padding: 90px 20px 80px;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      padding: 4px 14px;
+      background: rgba(56,189,248,0.1);
+      border: 1px solid rgba(56,189,248,0.25);
+      border-radius: 100px;
+      color: #38bdf8;
+      font-size: 13px;
+      margin-bottom: 24px;
     }
 
     .hero h1 {
@@ -66,12 +66,7 @@
       line-height: 1.7;
     }
 
-    .btn-group {
-      display: flex;
-      gap: 12px;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
+    .btn-group { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
 
     .btn {
       padding: 11px 24px;
@@ -82,59 +77,30 @@
       border: none;
       transition: opacity 0.2s, transform 0.15s;
     }
+    .btn:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-primary { background: #38bdf8; color: #0f172a; }
+    .btn-outline { background: transparent; color: #38bdf8; border: 1px solid #38bdf8; }
 
-    .btn:hover {
-      opacity: 0.88;
-      transform: translateY(-1px);
-    }
-
-    .btn-primary {
-      background: #38bdf8;
-      color: #0f172a;
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: #38bdf8;
-      border: 1px solid #38bdf8;
-    }
-
+    /* ── STATS ── */
     .stats {
       display: flex;
       justify-content: center;
       max-width: 700px;
-      margin: 0 auto 70px;
+      margin: 0 auto 80px;
       background: #111827;
       border: 1px solid #1e2d3d;
       border-radius: 12px;
       overflow: hidden;
     }
 
-    .stat {
-      flex: 1;
-      padding: 20px 16px;
-      text-align: center;
-      border-right: 1px solid #1e2d3d;
-    }
+    .stat { flex: 1; padding: 20px 16px; text-align: center; border-right: 1px solid #1e2d3d; }
+    .stat:last-child { border-right: none; }
+    .stat-value { font-size: 22px; font-weight: bold; color: #38bdf8; margin-bottom: 4px; }
+    .stat-label { font-size: 12px; color: #475569; }
 
-    .stat:last-child {
-      border-right: none;
-    }
-
-    .stat-value {
-      font-size: 22px;
-      font-weight: bold;
-      color: #38bdf8;
-      margin-bottom: 4px;
-    }
-
-    .stat-label {
-      font-size: 12px;
-      color: #475569;
-    }
-
+    /* ── FEATURES ── */
     .section {
-      padding: 20px 40px 70px;
+      padding: 0 40px 80px;
       max-width: 1000px;
       margin: 0 auto;
     }
@@ -149,12 +115,7 @@
       margin-bottom: 32px;
     }
 
-    .cards {
-      display: flex;
-      justify-content: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
+    .cards { display: flex; justify-content: center; gap: 18px; flex-wrap: wrap; }
 
     .card {
       background: #111827;
@@ -164,29 +125,129 @@
       border: 1px solid #1e2d3d;
       transition: border-color 0.2s, transform 0.2s;
     }
+    .card:hover { border-color: #38bdf8; transform: translateY(-3px); }
+    .card-icon { font-size: 26px; margin-bottom: 14px; }
+    .card h3 { font-size: 16px; color: #e2e8f0; margin-bottom: 10px; }
+    .card p { font-size: 14px; color: #64748b; line-height: 1.65; }
 
-    .card:hover {
-      border-color: #38bdf8;
-      transform: translateY(-3px);
+    /* ── HOW IT WORKS ── */
+    .how {
+      max-width: 860px;
+      margin: 0 auto 80px;
+      padding: 0 40px;
     }
 
-    .card-icon {
-      font-size: 26px;
-      margin-bottom: 14px;
+    .how .section-title { margin-bottom: 40px; }
+
+    .steps {
+      display: flex;
+      gap: 0;
+      position: relative;
     }
 
-    .card h3 {
-      font-size: 16px;
+    .steps::before {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: calc(16.6% + 22px);
+      right: calc(16.6% + 22px);
+      height: 1px;
+      background: #1e2d3d;
+    }
+
+    .step {
+      flex: 1;
+      text-align: center;
+      padding: 0 16px;
+    }
+
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #111827;
+      border: 1px solid #1e2d3d;
+      color: #38bdf8;
+      font-size: 15px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .step h4 {
+      font-size: 14px;
       color: #e2e8f0;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
 
-    .card p {
+    .step p {
+      font-size: 13px;
+      color: #475569;
+      line-height: 1.6;
+    }
+
+    /* ── INFO STRIP ── */
+    .info-strip {
+      background: #111827;
+      border-top: 1px solid #1e2d3d;
+      border-bottom: 1px solid #1e2d3d;
+      padding: 56px 40px;
+      margin-bottom: 80px;
+    }
+
+    .info-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: flex;
+      gap: 60px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .info-text { flex: 1; min-width: 260px; }
+
+    .info-text h2 {
+      font-size: 22px;
+      color: #e2e8f0;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+
+    .info-text p {
       font-size: 14px;
       color: #64748b;
-      line-height: 1.65;
+      line-height: 1.75;
     }
 
+    .info-list { flex: 1; min-width: 220px; }
+
+    .info-list ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 14px;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    .info-list li::before {
+      content: '✓';
+      color: #38bdf8;
+      font-weight: bold;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── CTA ── */
     .cta {
       text-align: center;
       padding: 60px 20px;
@@ -194,19 +255,10 @@
       border-top: 1px solid #1e2d3d;
       border-bottom: 1px solid #1e2d3d;
     }
+    .cta h2 { font-size: 26px; color: #e2e8f0; margin-bottom: 12px; }
+    .cta p { color: #64748b; font-size: 15px; margin-bottom: 28px; }
 
-    .cta h2 {
-      font-size: 26px;
-      color: #e2e8f0;
-      margin-bottom: 12px;
-    }
-
-    .cta p {
-      color: #64748b;
-      font-size: 15px;
-      margin-bottom: 28px;
-    }
-
+    /* ── FOOTER ── */
     footer {
       text-align: center;
       padding: 24px 20px;
@@ -214,11 +266,23 @@
       color: #334155;
       font-size: 13px;
     }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      header { padding: 16px 20px; }
+      .logo { margin-right: 20px; }
+      .section, .how, .info-strip { padding-left: 20px; padding-right: 20px; }
+      .hero h1 { font-size: 30px; }
+      .steps { flex-direction: column; gap: 28px; }
+      .steps::before { display: none; }
+      .stats { flex-wrap: wrap; }
+      .stat { min-width: 50%; border-bottom: 1px solid #1e2d3d; }
+    }
   </style>
 </head>
-
 <body>
 
+  <!-- HEADER -->
   <header>
     <div class="logo">AndroidHosting</div>
     <nav>
@@ -228,70 +292,107 @@
     </nav>
   </header>
 
+  <!-- HERO -->
   <div class="hero">
     <h1>Android Host System</h1>
-    <p>
-      Platform untuk menghubungkan Android Host dan Remote Node dalam sistem terdistribusi real-time.
-    </p>
-
+    <p>Platform untuk menghubungkan Android Host dan Remote Node dalam sistem terdistribusi real-time.</p>
     <div class="btn-group">
       <button class="btn btn-primary">Get Started</button>
       <button class="btn btn-outline">View Docs</button>
     </div>
   </div>
 
+  <!-- STATS -->
   <div class="stats">
     <div class="stat">
       <div class="stat-value">99.9%</div>
       <div class="stat-label">Uptime</div>
     </div>
-
     <div class="stat">
       <div class="stat-value">&lt;12ms</div>
       <div class="stat-label">Latency</div>
     </div>
-
     <div class="stat">
       <div class="stat-value">10K+</div>
       <div class="stat-label">Devices</div>
     </div>
-
     <div class="stat">
       <div class="stat-value">256-bit</div>
       <div class="stat-label">Encryption</div>
     </div>
   </div>
 
+  <!-- FEATURE CARDS -->
   <div class="section">
     <div class="section-title">Core Features</div>
-
     <div class="cards">
       <div class="card">
         <div class="card-icon">⚙️</div>
         <h3>Control System</h3>
-        <p>Kelola device Android sebagai host & remote dengan mudah dari satu dashboard.</p>
+        <p>Kelola device Android sebagai host & remote dengan mudah dari satu dashboard terpusat.</p>
       </div>
-
       <div class="card">
         <div class="card-icon">🔗</div>
         <h3>Real-time</h3>
-        <p>Komunikasi cepat antar node menggunakan relay system dengan latensi rendah.</p>
+        <p>Komunikasi cepat antar node menggunakan relay system dengan latensi di bawah 12ms.</p>
       </div>
-
       <div class="card">
         <div class="card-icon">📡</div>
         <h3>Scalable</h3>
-        <p>Bisa dikembangkan untuk multi-device network tanpa batas.</p>
+        <p>Bisa dikembangkan untuk multi-device network tanpa degradasi performa.</p>
       </div>
     </div>
   </div>
 
+  <!-- HOW IT WORKS -->
+  <div class="how">
+    <div class="section-title">Cara Kerja</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Install & Config</h4>
+        <p>Jalankan ahost init dan load konfigurasi node kamu.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Connect Relay</h4>
+        <p>Node terhubung otomatis ke relay server terdekat.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Go Live</h4>
+        <p>Device aktif dalam jaringan terdistribusi real-time.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-inner">
+      <div class="info-text">
+        <h2>Dibangun untuk sistem terdistribusi skala besar</h2>
+        <p>AndroidHosting dirancang agar Android kamu bisa berperan sebagai host maupun remote node dalam jaringan terdistribusi — dengan komunikasi real-time, enkripsi penuh, dan arsitektur yang mudah dikembangkan.</p>
+      </div>
+      <div class="info-list">
+        <ul>
+          <li>Enkripsi end-to-end AES-256 di semua koneksi</li>
+          <li>Relay system dengan latensi di bawah 12ms</li>
+          <li>Mendukung ribuan node secara bersamaan</li>
+          <li>REST & WebSocket API siap integrasi</li>
+          <li>Dashboard monitoring real-time per node</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
   <div class="cta">
     <h2>Siap untuk mulai?</h2>
     <p>Setup hanya 5 menit. Hubungkan device Android pertamamu sekarang.</p>
     <button class="btn btn-primary">Get Started Gratis</button>
   </div>
 
+  <!-- FOOTER -->
   <footer>
     © 2026 AndroidHosting. All rights reserved.
   </footer>
